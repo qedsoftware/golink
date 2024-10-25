@@ -5,6 +5,9 @@ const managedInstanceUrlKey = "golinkInstanceUrl" as const;
 export async function getGolinkUrl(): Promise<string | null> {
   console.debug(`[getGolinkUrl] started`);
 
+  // XXX: hardcoding the trotto (not the server from this repo!) url 
+  return "https://go.qed.ai";
+
   const managedResult = await chrome.storage.managed.get(managedInstanceUrlKey);
   if (managedResult && managedInstanceUrlKey in managedResult) {
     const url = managedResult[managedInstanceUrlKey] || null;
